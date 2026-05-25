@@ -1,0 +1,46 @@
+{
+  "timezone": "Europe/Amsterdam",
+  "proactive": {
+    "silenceThresholdSeconds": 300,
+    "tickSeconds": 10,
+    "minPromptSpacingSeconds": 60
+  },
+  "hydration": {
+    "intervalMinutes": 120,
+    "activeWindow": { "start": "08:00", "end": "20:00" }
+  },
+  "medicationWindows": {
+    "morning": { "start": "07:00", "end": "09:00" },
+    "lunch": { "start": "12:00", "end": "13:30" },
+    "evening": { "start": "18:00", "end": "21:00" },
+    "bed": { "start": "21:00", "end": "23:00" }
+  },
+  "dailyScheduleWindows": {
+    "wake": { "start": "07:00", "end": "09:00" },
+    "breakfast": { "start": "07:30", "end": "09:30" },
+    "walk": { "start": "10:00", "end": "11:30" },
+    "lunch": { "start": "12:00", "end": "13:30" },
+    "rest": { "start": "13:00", "end": "14:30" },
+    "cognitive": { "start": "15:00", "end": "16:00", "onlyIfBefore": "16:00" },
+    "dinner": { "start": "17:30", "end": "19:30" },
+    "calmEvening": { "start": "19:00", "end": "20:30" },
+    "hygiene": { "start": "20:00", "end": "21:00" },
+    "safetyChecks": { "start": "21:00", "end": "22:30" },
+    "bed": { "start": "21:00", "end": "23:30" }
+  },
+  "happiness": {
+    "initial": 0.60,
+    "goodMoodThreshold": 0.70,
+    "deltaPositive": 0.05,
+    "deltaNegative": -0.05
+  },
+  "memoryExercise": {
+    "giveWordsBefore": "12:00",
+    "maxRecallsPerDay": 2,
+    "allowAfter": "19:00"
+  },
+  "ollama": {
+    "baseUrl": "http://100.71.253.9:11434",
+    "model": "gemma4:e2b"
+  }
+}

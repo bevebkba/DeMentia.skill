@@ -1,0 +1,6 @@
+plugins {
+    // Enables auto-download of requested Java toolchains.
+    id "org.gradle.toolchains.foojay-resolver-convention" version "1.0.0"
+}
+
+rootProject.name = "arthur-companion"

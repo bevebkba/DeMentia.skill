@@ -1,0 +1,13 @@
+{
+  "agenda": [],
+  "happiness": { "score": 0.6, "updatedAt": null },
+  "routines": {},
+  "memory": {
+    "localDate": null,
+    "words": null,
+    "givenAt": null,
+    "recallCount": 0,
+    "lastRecallAt": null
+  },
+  "conversation": { "lastUserSeenAt": null, "lastBotSpokeAt": null }
+}
