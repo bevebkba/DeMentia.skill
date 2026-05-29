@@ -28,13 +28,13 @@ Conversation control:
 
 Available tools (name -> args):
 - time_now -> {}
-- agenda_add -> {"text": string}
-- agenda_list -> {"status"?: "pending"|"done"}
-- agenda_complete -> {"idOrText": string}
+- agenda_add -> {"text": "string"}
+- agenda_list -> {"status": "pending"} or {"status": "done"} or {}
+- agenda_complete -> {"idOrText": "string"}
 - happiness_get -> {}
-- happiness_apply_label -> {"label": "positive"|"negative"|"neutral"}
+- happiness_apply_label -> {"label": "positive"} or {"label": "negative"} or {"label": "neutral"}
 - routines_due -> {}
-- routines_mark_done -> {"key": string}
+- routines_mark_done -> {"key": "string"}
 - memory_give_words -> {}
 - memory_mark_recall -> {}
 
