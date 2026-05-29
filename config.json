@@ -1,9 +1,11 @@
 {
   "timezone": "Europe/Amsterdam",
+  "voice": "Matthew",
+  "expressiveMode": false,
   "proactive": {
     "silenceThresholdSeconds": 300,
     "tickSeconds": 10,
-    "minPromptSpacingSeconds": 60
+    "minPromptSpacingSeconds": 30
   },
   "hydration": {
     "intervalMinutes": 120,
@@ -25,6 +27,7 @@
     "dinner": { "start": "17:30", "end": "19:30" },
     "calmEvening": { "start": "19:00", "end": "20:30" },
     "hygiene": { "start": "20:00", "end": "21:00" },
+    "feedLuna": { "start": "08:00", "end": "09:30" },
     "safetyChecks": { "start": "21:00", "end": "22:30" },
     "bed": { "start": "21:00", "end": "23:30" }
   },
@@ -39,8 +42,9 @@
     "maxRecallsPerDay": 2,
     "allowAfter": "19:00"
   },
-  "ollama": {
-    "baseUrl": "http://100.71.253.9:11434",
-    "model": "gemma4:e2b"
+  "llm": {
+    "baseUrl": "http://100.71.253.9:11535/v1",
+    "model": "gemma-4-e2b-it-4bit",
+    "apiKey": "11535"
   }
 }

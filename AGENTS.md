@@ -1,23 +1,23 @@
 # AGENTS.md
 
-- Project is Furhat Skill SDK (Kotlin/Gradle), runs on laptop (no robot deploy).
-- Entry point: `src/main/kotlin/furhatos/app/arthurcompanion/main.kt` (`ArthurCompanionSkill`).
+- Read `SESSION.md` first. Treat it as source of truth for schedule defaults, safety rules, LLM contract, and already-fixed runtime issues.
 
-- Build skill file: `./gradlew shadowJar` (outputs `build/libs/*.skill`).
-- Run locally: Furhat SDK/Virtual Furhat must be running; easiest is run `main()` from IntelliJ.
-- Tests: `./gradlew test`.
+- Repo is single-module Furhat Remote API Python app for laptop/Virtual Furhat, not robot deploy.
+- Entry point: `main.py`.
+- Run locally with Virtual Furhat running: `python main.py` in the `furhat` conda environment.
 
-- Skill runtime uses Java 8 (class file version 52). Build targets Java 8 via Gradle toolchains.
+- Legacy Kotlin code is preserved in `legacy/`.
 
-- If `./gradlew` fails on system Java ("Unsupported class file major version 70"), run Gradle with JDK 21 via `JAVA_HOME=... PATH=$JAVA_HOME/bin:$PATH ./gradlew ...`.
+- `config.json` is runtime config.
+- Persistent app state is `data/state.json`; updated via standard Python IO.
 
-- Runtime config lives in `config.json` (timezone `Europe/Amsterdam`, routine windows, Ollama endpoint/model).
-- Persistent state lives in `data/state.json` (agenda, happiness, routines, memory, last seen/spoke).
+- LLM settings in `config.json` under `"llm"` key: base URL, model, optional apiKey.
+- LLM output must stay JSON-only: `{"type":"tool_call","name":"...","args":{}}` or `{"type":"final","text":"..."}`. Parser allows exactly one repair retry, then fallback.
 
-- Ollama endpoint default: `http://100.71.253.9:11434` (`config.json` -> `ollama.baseUrl`).
+- Safety invariant: no medical advice/diagnosis/dosing. Medication prompts must remain generic `scheduled medication` and only come from due-window tool logic.
+- Routine/schedule behavior is implemented in `src/main/kotlin/furhatos/app/arthurcompanion/tools/ToolDispatcher.kt`; preserve calm-evening filtering, happiness clamp/update rules, and memory exercise limits from `SESSION.md`.
 
-- LLM contract: model must output JSON only:
-  - `{"type":"tool_call","name":"...","args":{...}}` or `{"type":"final","text":"..."}`.
-  - Invalid JSON triggers one repair attempt then fallback response.
+- Python loop uses short-polling `furhat.listen(timeout=5000)`.
+- Voice-only start: `furhat.attend(userid="NOBODY")` and `Hello Arthur.`; no FaceEngine dependency. User tracking updates only on verbal response.
 
-- Safety hard rule: no medical advice/diagnosis/dosing; medication prompts are generic ("scheduled medication") and only when tool layer marks a window due.
+- Tests are sparse. Existing coverage is `src/test/kotlin/furhatos/app/arthurcompanion/ToolDispatcherTest.kt`; when changing routine timing or state-reset logic, add focused tests there or alongside it.

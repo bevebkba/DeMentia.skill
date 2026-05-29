@@ -1,0 +1,14 @@
+[project]
+name = "arthurcompanion"
+version = "0.1.0"
+description = "Furhat Skill using Remote API"
+requires-python = ">=3.10"
+dependencies = [
+    "furhat-remote-api",
+    "requests",
+    "pydantic>=2.0"
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"

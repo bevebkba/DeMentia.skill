@@ -1,13 +1,30 @@
 {
   "agenda": [],
-  "happiness": { "score": 0.6, "updatedAt": null },
-  "routines": {},
-  "memory": {
-    "localDate": null,
-    "words": null,
-    "givenAt": null,
-    "recallCount": 0,
-    "lastRecallAt": null
+  "happiness": {
+    "score": 0.6,
+    "updatedAt": null
   },
-  "conversation": { "lastUserSeenAt": null, "lastBotSpokeAt": null }
+  "routines": {
+    "skill_idle": {
+      "lastPromptedAt": "2026-05-29T23:54:44.850080+02:00"
+    },
+    "memory_recall": {
+      "lastPromptedAt": "2026-05-29T23:24:39.884854+02:00"
+    }
+  },
+  "memory": {
+    "localDate": "2026-05-29",
+    "words": [
+      "chair",
+      "river",
+      "garden"
+    ],
+    "givenAt": "2026-05-29T23:24:40.793704+02:00",
+    "recallCount": 2,
+    "lastRecallAt": "2026-05-29T23:25:26.222246+02:00"
+  },
+  "conversation": {
+    "lastUserSeenAt": "2026-05-29T23:55:55.280943+02:00",
+    "lastBotSpokeAt": "2026-05-29T23:55:57.410432+02:00"
+  }
 }
